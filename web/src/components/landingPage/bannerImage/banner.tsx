@@ -1,5 +1,4 @@
-import { sanityFetch } from "@/sanity/client";
-import { SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
 import BannerImage from "./bannerImage";
 
 
@@ -9,10 +8,7 @@ const BANNERIMAGE_QUERY = `*[_type == 'bannerImgage']{
 }`;
 
 const Banner = async () => {
-  const banners = await sanityFetch<SanityDocument[]>({
-    query: BANNERIMAGE_QUERY,
-  });
-
+  const banners = await client.fetch<Banner[]>(BANNERIMAGE_QUERY);
 
   return (
     <>
