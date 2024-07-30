@@ -1,9 +1,9 @@
-export const footerData = [
+export const footerData:footerLinks[] = [
   {
     title: "Kontakt",
     links: [
       { title: "email", data: "diamondsolution@gmail.com", icon: "EmailIcon" },
-      { title: "tel", data: 123456789, icon: "PhoneIcon" },
+      { title: "tel", data: "123456789", icon: "PhoneIcon" },
       {
         title: "instagram",
         data: "diamond_solutions",
