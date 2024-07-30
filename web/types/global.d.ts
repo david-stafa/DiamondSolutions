@@ -14,4 +14,12 @@ declare global {
       icon?: string;
     }[];
   }
+  interface menuItems {
+    title: string;
+    url: string;
+    submenu?: {
+      title: string;
+      url: string;
+    }[];
+  }
 }

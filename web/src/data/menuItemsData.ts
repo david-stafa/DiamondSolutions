@@ -1,4 +1,4 @@
-export const menuItemsData = [
+export const menuItemsData: menuItems[] = [
   {
     title: "Šperky",
     url: "sperky",
