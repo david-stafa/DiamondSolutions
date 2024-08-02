@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export const products = defineType({
-  name: 'sperky',
-  title: 'Šperky',
+  name: 'products',
+  title: 'Products',
   type: 'document',
   fields: [
     defineField({
@@ -35,7 +35,7 @@ export const products = defineType({
     }),
     defineField({
       name: 'image',
-      type: 'image'
+      type: 'image',
     }),
   ],
 })
