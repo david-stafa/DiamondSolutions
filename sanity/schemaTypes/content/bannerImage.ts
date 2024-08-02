@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export const bannerImage = defineType({
-  name: 'bannerImgage',
+  name: 'bannerImage',
   title: 'Banner Image',
   type: 'document',
   fields: [
