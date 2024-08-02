@@ -7,7 +7,7 @@ const NewJewelry = () => {
       <div className="flex justify-between">
         {Array.from({ length: numJewelry }).map((_, index) => (
           <div key={index}>
-            <div className="flex h-72 w-72 items-center justify-center rounded-3xl bg-slate-200">
+            <div className="flex h-72 w-72 items-center justify-center rounded-2xl bg-slate-200">
               <h6>Image of new Jewelry</h6>
             </div>
             <h6 className="mt-2 pl-2">Queen diamond ring</h6>

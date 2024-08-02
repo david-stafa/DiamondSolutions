@@ -6,7 +6,7 @@ const Articles = () => {
       <div className="mb-12 flex flex-grow flex-wrap justify-between">
         {Array.from({ length: numArticles }).map((_, index) => (
           <div className="mx-1" key={index}>
-            <div className="flex h-52 w-[24rem] items-center justify-center rounded-3xl bg-slate-200">
+            <div className="flex h-52 w-[24rem] items-center justify-center rounded-2xl bg-slate-200">
               <h6>Článek</h6>
             </div>
             <h6 className="mt-4 w-96">

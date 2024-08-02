@@ -13,7 +13,7 @@ const BannerImage: React.FC<Props> = ({ banners }) => {
   const [bannerPos, setBannerPos] = useState(0);
 
   return (
-    <div className="relative m-auto h-screen max-h-[70vh] w-screen bg-cover">
+    <div className="relative m-auto h-screen max-h-[70vh] w-full bg-cover">
       <Image
         src={banners[bannerPos].imageUrl}
         sizes="100vw"

@@ -16,14 +16,14 @@ const ProductPage = () => {
           <h4 className="">Sperky moc hezky</h4>
           <h6 className="flex items-end">2000 Kč</h6>
         </div>
-          <hr className="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-25 dark:via-neutral-400" />
+        <hr className="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-25 dark:via-neutral-400" />
         <p className="mb-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quos
           enim debitis reprehenderit, praesentium nihil voluptas omnis neque at
           voluptatibus quisquam adipisci hic laudantium! Esse at accusantium
           earum tempora architecto?
         </p>
-        <button className="h-12 w-full rounded-3xl bg-slate-200">
+        <button className="h-12 w-full rounded-2xl bg-slate-200">
           Kontaktujte nás
         </button>
       </div>

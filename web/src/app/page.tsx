@@ -11,7 +11,7 @@ const gilda = Gilda_Display({
 
 export default async function Home() {
   return (
-    <main className={`min-h-screen w-screen ${gilda.className}`}>
+    <main className={`min-h-screen w-full ${gilda.className}`}>
       <LandingPage />
     </main>
   );

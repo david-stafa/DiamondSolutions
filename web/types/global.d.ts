@@ -22,4 +22,13 @@ declare global {
       url: string;
     }[];
   }
+  interface products {
+    name: string;
+    price: number;
+    shortDescription: string;
+    longDescription: string;
+    category: string;
+    subcategory: string;
+    imageUrl: string;
+  }[];
 }

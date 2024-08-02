@@ -31,11 +31,11 @@ export const menuItemsData: menuItems[] = [
   },
   {
     title: "Volné diamanty",
-    url: "/volnediamanty",
+    url: "/volne-diamanty",
   },
   {
     title: "Investiční šperky",
-    url: "/investicnisperky",
+    url: "/investicni-sperky",
   },
   {
     title: "Kontakt",

@@ -8,19 +8,19 @@ const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'voln
   "imageUrl": image.asset->url
   }`;
 
-const Ring = async () => {
-  const prsteny: products[] = await client.fetch(PRODUCTS_QUERY);
+const Bracelet = async () => {
+  const naramky: products[] = await client.fetch(PRODUCTS_QUERY);
 
   return (
     <div className="max-w-7xl px-4 xl:px-0">
       <MainProductImage
-        source={prsteny[1].imageUrl}
-        alt={prsteny[1].shortDescription}
+        source={naramky[1].imageUrl}
+        alt={naramky[1].shortDescription}
       />
 
-      <ProductList data={prsteny} />
+      <ProductList data={naramky} />
     </div>
   );
 };
 
-export default Ring;
+export default Bracelet;

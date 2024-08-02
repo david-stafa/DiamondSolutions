@@ -1,8 +1,26 @@
-export default function InvesticniSperky() {
+import MainProductImage from "@/components/products/mainProductImage";
+import ProductList from "@/components/products/productList";
+import { client } from "@/sanity/client";
+
+const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'volne-diamanty']{
+  name,
+  price,
+  "imageUrl": image.asset->url
+}`;
+
+const InvesticniSperky = async () => {
+  const products: products[] = await client.fetch(PRODUCTS_QUERY);
+
   return (
     <>
-      <div className="w-screen h-screen bg-gray-400"></div>
-      <h1 className="bg-red">Investiční šperky</h1>
+      <MainProductImage
+        source={products[1].imageUrl}
+        alt={products[1].shortDescription}
+      />
+
+      <ProductList data={products} />
     </>
   );
-}
+};
+
+export default InvesticniSperky;
