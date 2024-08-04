@@ -2,9 +2,10 @@ import MainProductImage from "@/components/products/mainProductImage";
 import ProductList from "@/components/products/productList";
 import { client } from "@/sanity/client";
 
-const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'volne-diamanty']{
+const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == 'nahrdelniky']{
   name,
   price,
+  shortDescription,
   "imageUrl": image.asset->url
   }`;
 
@@ -14,8 +15,8 @@ const Necklace = async () => {
   return (
     <div className="max-w-7xl px-4 xl:px-0">
       <MainProductImage
-        source={nahrdelniky[1].imageUrl}
-        alt={nahrdelniky[1].shortDescription}
+        source={nahrdelniky[0].imageUrl}
+        alt={nahrdelniky[0].shortDescription}
       />
 
       <ProductList data={nahrdelniky} />

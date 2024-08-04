@@ -3,7 +3,7 @@ import MainProductImage from "@/components/products/mainProductImage";
 import ProductList from "@/components/products/productList";
 import { client } from "@/sanity/client";
 
-const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'volne-diamanty']{
+const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'sperky']{
   name,
   price,
   "imageUrl": image.asset->url

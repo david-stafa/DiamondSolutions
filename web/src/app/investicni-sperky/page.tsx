@@ -2,9 +2,10 @@ import MainProductImage from "@/components/products/mainProductImage";
 import ProductList from "@/components/products/productList";
 import { client } from "@/sanity/client";
 
-const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'volne-diamanty']{
+const PRODUCTS_QUERY = `*[_type == 'products' && category->slug.current == 'investicni-sperky']{
   name,
   price,
+  shortDescription,
   "imageUrl": image.asset->url
 }`;
 
@@ -14,8 +15,8 @@ const InvesticniSperky = async () => {
   return (
     <>
       <MainProductImage
-        source={products[1].imageUrl}
-        alt={products[1].shortDescription}
+        source={products[0]?.imageUrl}
+        alt={products[0]?.shortDescription}
       />
 
       <ProductList data={products} />
