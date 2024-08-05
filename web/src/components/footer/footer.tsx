@@ -19,35 +19,37 @@ const iconMapping: IconMapping = {
 
 const Footer = () => {
   return (
-    <div className="mt-auto flex h-fit w-full justify-around bg-gray-200 p-8">
-      {footerData &&
-        footerData.map((section, index) => (
-          <div key={index}>
-            <h5 className="mb-2 underline">{section.title}</h5>
-            {section.links.map((link, linkIndex) => {
-              const IconComponent = link.icon && iconMapping[link.icon];
-              return (
-                <div key={linkIndex} className="flex">
-                  <div className="flex h-6 items-center">
-                    {link.link ? (
-                      <>
-                        {IconComponent && <IconComponent className="mr-2" />}
-                        <Link href={link.link}>
+    <div className="h-fit w-full bg-slate-200">
+      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-4 pb-4">
+        {footerData &&
+          footerData.map((section, index) => (
+            <div key={index}>
+              <h5 className="mb-1 underline pt-4">{section.title}</h5>
+              {section.links.map((link, linkIndex) => {
+                const IconComponent = link.icon && iconMapping[link.icon];
+                return (
+                  <div key={linkIndex} className="flex">
+                    <div className="flex h-6 items-center">
+                      {link.link ? (
+                        <>
+                          {IconComponent && <IconComponent className="mr-2" />}
+                          <Link href={link.link}>
+                            <span className="">{link.data || link.title}</span>
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          {IconComponent && <IconComponent className="mr-2" />}
                           <span className="">{link.data || link.title}</span>
-                        </Link>
-                      </>
-                    ) : (
-                      <>
-                        {IconComponent && <IconComponent className="mr-2" />}
-                        <span className="">{link.data || link.title}</span>
-                      </>
-                    )}
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        ))}
+                );
+              })}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

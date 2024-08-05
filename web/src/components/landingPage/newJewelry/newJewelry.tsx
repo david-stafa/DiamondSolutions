@@ -1,13 +1,15 @@
+import Container from "@/components/common/Container";
+
 const NewJewelry = () => {
   const numJewelry = 4;
 
   return (
-    <div className="m-auto max-w-7xl">
+    <Container>
       <h4 className="my-8">Novinky: </h4>
-      <div className="flex justify-between">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: numJewelry }).map((_, index) => (
           <div key={index}>
-            <div className="flex h-72 w-72 items-center justify-center rounded-2xl bg-slate-200">
+            <div className="flex h-72 w-full items-center justify-center rounded-2xl bg-slate-200">
               <h6>Image of new Jewelry</h6>
             </div>
             <h6 className="mt-2 pl-2">Queen diamond ring</h6>
@@ -16,7 +18,7 @@ const NewJewelry = () => {
         ))}
       </div>
       <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-25 dark:via-neutral-400" />
-    </div>
+    </Container>
   );
 };
 
