@@ -11,8 +11,14 @@ export const categories = defineType({
     }),
     defineField({name: 'slug', type: 'slug', options: {source: 'name'}}),
     defineField({
-      name: 'image',
+      name: 'bannerImage',
       type: 'image',
+      title: 'Banner image',
+    }),
+    defineField({
+      name: 'menuImage',
+      type: 'image',
+      title: 'Menu image',
     }),
   ],
 })
