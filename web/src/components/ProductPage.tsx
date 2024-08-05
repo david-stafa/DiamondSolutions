@@ -1,6 +1,6 @@
 const ProductPage = () => {
   return (
-    <div className="m-auto my-8 flex w-screen max-w-7xl flex-1">
+    <div className="m-auto my-8 flex w-full max-w-7xl flex-1">
       <div className="flex max-w-[calc(100%-440px)] flex-col gap-1 pr-12">
         <div className="h-screen max-h-[31rem] bg-slate-200"></div>
         <div className="fled-col flex gap-1">
