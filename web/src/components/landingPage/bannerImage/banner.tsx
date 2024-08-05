@@ -2,14 +2,14 @@ import { client } from "@/sanity/client";
 import BannerImage from "./bannerImage";
 
 
-const BANNERIMAGE_QUERY = `*[_type == 'bannerImgage']{
+const BANNERIMAGE_QUERY = `*[_type == 'bannerImage']{
   name,
   "imageUrl": image.asset->url
 }`;
 
 const Banner = async () => {
   const banners = await client.fetch<Banner[]>(BANNERIMAGE_QUERY);
-
+  console.log(banners)
   return (
     <>
       <BannerImage banners={banners} />
