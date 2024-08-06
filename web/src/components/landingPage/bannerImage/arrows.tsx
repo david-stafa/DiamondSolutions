@@ -15,14 +15,12 @@ const Arrows: React.FC<ArrowsProps> = ({ bannersLength, bannerPos, setBannerPos 
     bannerPos == bannersLength - 1
       ? setBannerPos(0)
       : setBannerPos(bannerPos + 1);
-    console.log(bannerPos);
   };
 
   const handleBannerPrevious = () => {
     bannerPos == 0
       ? setBannerPos(bannersLength - 1)
       : setBannerPos(bannerPos - 1);
-    console.log(bannerPos);
   };
 
   return (

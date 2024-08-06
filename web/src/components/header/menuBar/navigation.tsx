@@ -16,11 +16,9 @@ export default function Navigation() {
   const [navStatus, setNavStatus] = useState(false);
   const handleNavClose = () => {
     setNavStatus(false);
-    console.log(false);
   };
   const handleNavOpen = () => {
     setNavStatus(true);
-    console.log(true);
   };
 
   // For desktop sub menu
