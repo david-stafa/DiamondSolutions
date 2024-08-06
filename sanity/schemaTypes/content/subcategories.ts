@@ -12,8 +12,14 @@ export const subcategory = defineType({
     defineField({name: 'slug', type: 'slug', options: {source: 'name'}}),
     defineField({name: 'category', type: 'reference', to: [{type: 'category'}]}),
     defineField({
-      name: 'image',
+      name: 'bannerImage',
       type: 'image',
+      title: 'Banner image',
+    }),
+    defineField({
+      name: 'menuImage',
+      type: 'image',
+      title: 'Menu image',
     }),
   ],
 })

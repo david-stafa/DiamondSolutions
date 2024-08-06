@@ -30,5 +30,7 @@ declare global {
     category: string;
     subcategory: string;
     imageUrl: string;
+    categoryBannerImageUrl: string,
+    subcategoryBannerImageUrl: string;
   }[];
 }
