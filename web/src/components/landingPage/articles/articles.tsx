@@ -4,10 +4,11 @@ const Articles = () => {
   const numArticles = 3;
   return (
     <Container>
-      <h4 className="my-8">Články: </h4>
-      <div className="mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <hr className="my-12 mb-9 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-25 dark:via-neutral-400" />
+      <h4 className="mb-4">Články: </h4>
+      <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: numArticles }).map((_, index) => (
-          <div className="mx-1 w-full" key={index}>
+          <div className="w-full" key={index}>
             <div className="h-52 w-full rounded-2xl bg-slate-200">
               <h6>Článek</h6>
             </div>

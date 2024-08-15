@@ -1,7 +1,7 @@
 export const menuItemsData: menuItems[] = [
   {
     title: "Šperky",
-    url: "sperky",
+    url: "/sperky",
     submenu: [
       {
         title: "Všechny šperky",

@@ -1,28 +1,39 @@
-"use client";
 import Container from "@/components/common/Container";
-import { menuItemsData } from "@/data/menuItemsData";
+import { MENU_PHOTOS_QUERY } from "@/queries/queries";
+import { client } from "@/sanity/client";
+import Image from "next/image";
 import Link from "next/link";
 
-const JewelryCategoryLandingPage = () => {
-  const sperkyItem = menuItemsData.find((item) => item.title === "Šperky");
+interface menuPhotos {
+  name: string;
+  slug: string;
+  subcategoryImage: string;
+  categoryImage: string;
+}
+
+const JewelryCategoryLandingPage = async () => {
+  const sperkyPhoto: menuPhotos[] = await client.fetch(MENU_PHOTOS_QUERY);
+
+  console.log(sperkyPhoto);
 
   return (
     <Container>
-      <h4 className="mb-8">Šperky podle kategorie: </h4>
-      <div className="p-8 grid grid-cols-5 flex-wrap gap-4 rounded-2xl shadow-xl">
-        {sperkyItem &&
-          sperkyItem.submenu &&
-          // Render SPERKY categories
-          sperkyItem.submenu.map((submenuItem, index) => (
-            <div key={index} className="">
-              <h6 className="mb-4 text-center">{submenuItem.title}</h6>
-              <Link href={submenuItem.url}>
-                <div className="w-full h-40 rounded-2xl bg-slate-200 m-auto">
-                  <h6 className="text-center">IMAGE of: {submenuItem.title}</h6>
-                </div>
-              </Link> 
-            </div>
-          ))}
+      <h4 className="mb-4">Šperky podle kategorie: </h4>
+      <div className="grid grid-cols-2 flex-wrap gap-4 rounded-2xl p-5 shadow-xl md:grid-cols-4">
+        {sperkyPhoto.map((subcategory, index) => (
+          <div key={index}>
+            <h6 className="mb-4 text-center">{subcategory.name}</h6>
+            <Link href={`/sperky/${subcategory.slug}`}>
+              <div className="relative m-auto h-28 w-full overflow-clip rounded-2xl sm:h-40">
+                <Image
+                  src={subcategory.subcategoryImage}
+                  alt={subcategory.name}
+                  fill={true}
+                />
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
     </Container>
   );

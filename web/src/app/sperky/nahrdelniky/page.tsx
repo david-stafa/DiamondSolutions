@@ -7,14 +7,14 @@ const Necklace = async () => {
   const nahrdelniky: products[] = await client.fetch(SPERKY_QUERY("nahrdelniky"));
 
   return (
-    <div className="max-w-7xl px-4 xl:px-0">
+    <>
       <MainProductImage
         source={nahrdelniky[0].subcategoryBannerImageUrl}
         alt={nahrdelniky[0].shortDescription}
       />
 
       <ProductList data={nahrdelniky} />
-    </div>
+    </>
   );
 };
 

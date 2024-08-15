@@ -20,11 +20,11 @@ const iconMapping: IconMapping = {
 const Footer = () => {
   return (
     <div className="h-fit w-full bg-slate-200">
-      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-4 pb-4">
+      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-4 pb-4 h-fit">
         {footerData &&
           footerData.map((section, index) => (
             <div key={index}>
-              <h5 className="mb-1 underline pt-4">{section.title}</h5>
+              <h5 className="underline pt-4">{section.title}</h5>
               {section.links.map((link, linkIndex) => {
                 const IconComponent = link.icon && iconMapping[link.icon];
                 return (

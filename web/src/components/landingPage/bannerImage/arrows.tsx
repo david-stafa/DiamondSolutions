@@ -10,7 +10,11 @@ interface ArrowsProps {
   setBannerPos: Dispatch<SetStateAction<number>>;
 }
 
-const Arrows: React.FC<ArrowsProps> = ({ bannersLength, bannerPos, setBannerPos }) => {
+const Arrows: React.FC<ArrowsProps> = ({
+  bannersLength,
+  bannerPos,
+  setBannerPos,
+}) => {
   const handleBannerNext = () => {
     bannerPos == bannersLength - 1
       ? setBannerPos(0)
@@ -26,13 +30,13 @@ const Arrows: React.FC<ArrowsProps> = ({ bannersLength, bannerPos, setBannerPos 
   return (
     <>
       <span
-        className="absolute right-10 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100"
+        className="absolute right-3 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:right-10"
         onClick={handleBannerNext}
       >
         <ArrowForwardIcon sx={{ color: "white" }} />
       </span>
       <span
-        className="absolute left-10 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100"
+        className="absolute left-3 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:left-10"
         onClick={handleBannerPrevious}
       >
         <ArrowBackIcon sx={{ color: "white" }} />

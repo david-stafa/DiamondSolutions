@@ -9,18 +9,18 @@ type Props = {
 const ProductList: React.FC<Props> = async ({ data }) => {
   return (
     <Container>
-      <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      <div className="mb-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:mb-8 lg:gap-4 xl:grid-cols-4">
         {data.map((product, index) => (
           <div
             key={index}
             className="rounded-2xl border border-t-0 border-slate-200"
           >
-            <div className="relative flex h-72 items-center justify-center overflow-hidden rounded-2xl bg-slate-200">
+            <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-slate-200">
               <Image
                 fill={true}
                 src={product.imageUrl}
                 alt={product.shortDescription}
-                className="transition ease-in-out hover:scale-110"
+                className="aspect-square transition ease-in-out hover:scale-110"
               />
             </div>
             <h6 className="mt-3 pl-2">{product.name}</h6>

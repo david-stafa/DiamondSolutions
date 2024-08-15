@@ -24,3 +24,16 @@ export const PRODUCTS_QUERY = (
   "categoryBannerImageUrl": category->bannerImage.asset->url,
   "imageUrl": image.asset->url
   }`;
+
+export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
+    name,
+    "slug": slug.current,
+    "subcategoryImage": menuImage.asset->url,
+    "categoryImage": category->menuImage.asset->url
+  }`;
+
+export const CATEGORY_BANNER_QUERY = `*[_type == 'category' && (slug.current == 'volne-diamanty' || slug.current == 'investicni-sperky')]{
+  name,
+  "slug": slug.current,
+  "image": manuImage.asset->url
+}`;

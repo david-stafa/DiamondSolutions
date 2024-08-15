@@ -7,14 +7,14 @@ const Ring = async () => {
   const prsteny: products[] = await client.fetch(SPERKY_QUERY("prsteny"));
 
   return (
-    <div className="max-w-7xl px-4 xl:px-0">
+    <>
       <MainProductImage
         source={prsteny[0].subcategoryBannerImageUrl}
         alt={prsteny[0].shortDescription}
       />
 
       <ProductList data={prsteny} />
-    </div>
+    </>
   );
 };
 

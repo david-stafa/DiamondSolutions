@@ -1,6 +1,7 @@
 import Articles from "./articles/articles";
 import Banner from "./bannerImage/banner";
 import BrandDescription from "./brandDescription/brandDescription";
+import CategoryBanner from "./categoryBanner/categoryBanner";
 import JewelryCategoryLandingPage from "./jewelryCategoryLandingPage/jewelryCategoryLP";
 import NewJewelry from "./newJewelry/newJewelry";
 
@@ -9,8 +10,9 @@ const LandingPage = () => {
     <div>
       <Banner />
       <BrandDescription />
-      <JewelryCategoryLandingPage />
       <NewJewelry />
+      <JewelryCategoryLandingPage />
+      <CategoryBanner />
       <Articles />
     </div>
   );
