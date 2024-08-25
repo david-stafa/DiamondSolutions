@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MobileDropdown from "./MobileDropdown";
+import MobileDropdown from "./mobileDropdown";
 import Link from "next/link";
 
 const MobileMenuItems = ({ items, depthLevel, showMenu, setShowMenu }) => {
