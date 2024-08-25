@@ -8,14 +8,20 @@ import MobileMenuItems from "./mobileMenuItems";
 const MobileNav = () => {
   const depthLevel = 0;
   const [showMenu, setShowMenu] = useState(false);
-  let ref = useRef();
+  const ref = useRef <HTMLUListElement>(null);
 
   useEffect(() => {
-    const handler = (event) => {
-      if (showMenu && ref.current && !ref.current.contains(event.target)) {
+    const handler = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (
+        showMenu &&
+        ref.current &&
+        !ref.current.contains(target)
+      ) {
         setShowMenu(false);
       }
     };
+
     document.addEventListener("mousedown", handler);
     document.addEventListener("touchstart", handler);
     return () => {
