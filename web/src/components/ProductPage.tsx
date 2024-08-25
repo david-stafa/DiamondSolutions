@@ -1,19 +1,20 @@
 import { numberWithDecimals } from "@/helpers/numberwdecimals";
 import Container from "./common/Container";
-import { PRODUCTS_QUERY, SINGLE_PRODUCT_QUERY } from "@/queries/queries";
-import { client } from "@/sanity/client";
+import { SINGLE_PRODUCT_QUERY } from "@/queries/queries";
 import Image from "next/image";
-import Carousel from "./common/carrousel";
-import { CarouselSize } from "./common/carrouselShad";
 import { CarouselProduct } from "@/app/(site)/produkt/[slug]/carouselProduct";
 import Link from "next/link";
+import { sanityFetch } from "@/sanity/lib/client";
 
 interface params {
   slug: string;
 }
 
 const ProductPage: React.FC<params> = async ({ slug }) => {
-  const product: products = await client.fetch(SINGLE_PRODUCT_QUERY(slug));
+  const product: products = await sanityFetch({
+    query: SINGLE_PRODUCT_QUERY(slug),
+    revalidate: 60, // update cache at most once every minute
+  });
 
   const imagesArray = [product.mainImage, ...(product.images || [])];
 

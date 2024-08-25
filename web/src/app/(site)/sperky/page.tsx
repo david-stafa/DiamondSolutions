@@ -1,10 +1,13 @@
 import MainProductImage from "@/components/products/mainProductImage";
 import ProductList from "@/components/products/productList";
 import { PRODUCTS_QUERY } from "@/queries/queries";
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/lib/client";
 
 const Sperky = async () => {
-  const sperky: products[] = await client.fetch(PRODUCTS_QUERY("sperky"));
+  const sperky: products[] = await sanityFetch({
+    query: PRODUCTS_QUERY("sperky"),
+    revalidate: 60, // update cache at most once every minute
+  });
 
   return (
     <div className="flex-grow">

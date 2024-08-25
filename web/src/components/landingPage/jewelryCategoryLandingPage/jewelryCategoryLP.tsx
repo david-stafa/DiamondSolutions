@@ -1,6 +1,6 @@
 import Container from "@/components/common/Container";
 import { MENU_PHOTOS_QUERY } from "@/queries/queries";
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,10 @@ interface menuPhotos {
 }
 
 const JewelryCategoryLandingPage = async () => {
-  const sperkyPhoto: menuPhotos[] = await client.fetch(MENU_PHOTOS_QUERY);
+  const sperkyPhoto: menuPhotos[] = await sanityFetch({
+    query: MENU_PHOTOS_QUERY,
+    revalidate: 60, // update cache at most once every minute
+  });
 
   console.log(sperkyPhoto);
 

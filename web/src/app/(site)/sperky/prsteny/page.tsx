@@ -1,10 +1,13 @@
 import MainProductImage from "@/components/products/mainProductImage";
 import ProductList from "@/components/products/productList";
 import { SPERKY_QUERY } from "@/queries/queries";
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/lib/client";
 
 const Ring = async () => {
-  const prsteny: products[] = await client.fetch(SPERKY_QUERY("prsteny"));
+  const prsteny: products[] = await sanityFetch({
+    query: SPERKY_QUERY("prsteny"),
+    revalidate: 60, // update cache at most once every minute
+  });
 
   return (
     <div className="flex-grow">

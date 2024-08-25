@@ -1,16 +1,15 @@
 import { CarouselSize } from "@/components/common/carrouselShad";
 import Container from "@/components/common/Container";
-import ItemsGallery from "@/components/common/ItemsGallery";
-import ItemsGalleryMobile from "@/components/common/ItemsGalleryMobile";
 import { NEW_JEWELRY_QUERY } from "@/queries/queries";
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/lib/client";
 
 const NewJewelry = async () => {
-  const newJewelry: products[] = await client.fetch(
-    NEW_JEWELRY_QUERY,
-  );
+  const newJewelry: products[] = await sanityFetch({
+    query: NEW_JEWELRY_QUERY,
+    revalidate: 60, // update cache at most once every minute
+  });
 
-  console.log(newJewelry)
+  console.log(newJewelry);
 
   return (
     <Container classes="mb-8">

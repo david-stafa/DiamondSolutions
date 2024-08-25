@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 import ProductCard from "./productCard";
 
 export function CarouselSize({ data }: { data: products[] }) {
