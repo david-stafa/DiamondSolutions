@@ -13,7 +13,7 @@ interface ProductDocument {
 }
 
 const validateSubcategory = (value: any, context: ValidationContext) => {
-  const parent = context.parent as ProductDocument;
+  const parent = context.parent as ProductDocument
   // Ensure `parent` and `parent.category` are defined
   if (parent?.category?._ref === '56679be4-42b1-49c2-84d3-dd84d398d2a7') {
     // Perform validation when the category matches the specific ID
@@ -73,6 +73,9 @@ export const products = defineType({
           type: 'image',
         },
       ],
+      options: {
+        layout: 'grid',
+      },
     }),
   ],
 })

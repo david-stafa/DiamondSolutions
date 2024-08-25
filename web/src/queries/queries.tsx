@@ -10,9 +10,12 @@ export const SPERKY_QUERY = (
 ) => `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == '${product}']{
   name,
   price,
+  "subcategory": subcategory->name,
+  "slug": slug.current,
   shortDescription,
   "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url,
-  "imageUrl": image.asset->url
+  "mainImage": image.asset->url
+
   }`;
 
 export const PRODUCTS_QUERY = (
@@ -20,9 +23,11 @@ export const PRODUCTS_QUERY = (
 ) => `*[_type == 'products' && category->slug.current == '${category}']{
   name,
   price,
+  "category": category->name,
+  "slug": slug.current,
   shortDescription,
   "categoryBannerImageUrl": category->bannerImage.asset->url,
-  "imageUrl": image.asset->url
+  "mainImage": image.asset->url
   }`;
 
 export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
@@ -35,5 +40,23 @@ export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
 export const CATEGORY_BANNER_QUERY = `*[_type == 'category' && (slug.current == 'volne-diamanty' || slug.current == 'investicni-sperky')]{
   name,
   "slug": slug.current,
-  "image": manuImage.asset->url
+  "image": menuImage.asset->url
+}`;
+
+export const SINGLE_PRODUCT_QUERY = (
+  data: string,
+) => `*[_type == 'products' && slug.current == '${data}'][0]{
+  name,
+  price,
+  salePrice,
+  longDescription,
+  "mainImage": image.asset->url,
+  "images": productImages[].asset->url
+}`;
+
+export const NEW_JEWELRY_QUERY = `*[_type == 'products' && new == true]{
+  name,
+  price,
+  "slug": slug.current,
+  "mainImage": image.asset->url,
 }`;

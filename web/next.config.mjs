@@ -8,6 +8,10 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        hostname: "picsum.photos",
+        hostname: "random.imagecdn.app",
+      },
     ],
   },
 };

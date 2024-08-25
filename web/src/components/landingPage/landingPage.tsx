@@ -13,7 +13,7 @@ const LandingPage = () => {
       <NewJewelry />
       <JewelryCategoryLandingPage />
       <CategoryBanner />
-      <Articles />
+      {/* <Articles /> */}
     </div>
   );
 };

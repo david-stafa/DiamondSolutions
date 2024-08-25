@@ -1,5 +1,5 @@
 export const numberWithDecimals = (number: number) => {
-  const numLength = number.toString().length;
+  const numLength = number?.toString().length;
 
   // Add spece(s) to a number for better readibility -> 11111 = 11 111
 

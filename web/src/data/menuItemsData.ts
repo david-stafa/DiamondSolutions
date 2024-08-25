@@ -40,5 +40,5 @@ export const menuItemsData: menuItems[] = [
   {
     title: "Kontakt",
     url: "/kontakt",
-  },
+  }
 ];

@@ -19,12 +19,12 @@ const JewelryCategoryLandingPage = async () => {
   return (
     <Container>
       <h4 className="mb-4">Šperky podle kategorie: </h4>
-      <div className="grid grid-cols-2 flex-wrap gap-4 rounded-2xl p-5 shadow-xl md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 rounded-2xl p-5 shadow-xl md:grid-cols-4">
         {sperkyPhoto.map((subcategory, index) => (
           <div key={index}>
             <h6 className="mb-4 text-center">{subcategory.name}</h6>
             <Link href={`/sperky/${subcategory.slug}`}>
-              <div className="relative m-auto h-28 w-full overflow-clip rounded-2xl sm:h-40">
+              <div className="relative m-auto aspect-square w-full overflow-clip rounded-2xl">
                 <Image
                   src={subcategory.subcategoryImage}
                   alt={subcategory.name}

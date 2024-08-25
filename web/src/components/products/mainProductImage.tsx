@@ -4,13 +4,19 @@ import Container from "../common/Container";
 interface Props {
   source: string;
   alt: string;
+  header: string;
 }
 
-const MainProductImage: React.FC<Props> = ({ source, alt }) => {
+const MainProductImage: React.FC<Props> = ({ source, alt, header }) => {
+
+  console.log(header)
   return (
     <Container>
-      <div className="relative my-4 md:my-8 flex h-screen max-h-[35vh] w-full items-center justify-center overflow-hidden rounded-2xl bg-slate-200 lg:max-h-[45vh]">
-        <Image src={source} alt={alt} fill={true} />
+      <div className="relative my-4 flex h-screen max-h-[30vh] w-full overflow-hidden rounded-2xl md:my-8 lg:max-h-[450px]">
+        <Image src={source} alt={alt} fill={true} priority={true} />
+        <h2 className="absolute bottom-5 p-1 md:bottom-10 left-5 rounded-2xl md:p-4 md:text-7xl text-white backdrop-blur-md">
+          {header}
+        </h2>
       </div>
     </Container>
   );

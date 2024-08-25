@@ -20,7 +20,7 @@ const iconMapping: IconMapping = {
 const Footer = () => {
   return (
     <div className="h-fit w-full bg-slate-200">
-      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-4 pb-4 h-fit">
+      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-5 pb-4 h-fit">
         {footerData &&
           footerData.map((section, index) => (
             <div key={index}>

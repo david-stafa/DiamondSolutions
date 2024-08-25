@@ -24,12 +24,15 @@ declare global {
   }
   interface products {
     name: string;
+    slug: string;
     price: number;
+    salePrice: number;
     shortDescription: string;
     longDescription: string;
     category: string;
     subcategory: string;
-    imageUrl: string;
+    mainImage: string;
+    images: string[];
     categoryBannerImageUrl: string,
     subcategoryBannerImageUrl: string;
   }[];
