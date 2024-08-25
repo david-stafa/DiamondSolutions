@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const CompanyPicture = () => {
   return (
-    <div className="h-[450px] lg:h-[600px] w-full bg-slate-200 rounded-2xl hidden md:block">
-        <p>COMPANY PICTURE</p>
-      {/* <Image src={} alt="" /> */}
+    <div className="hidden h-[450px] w-full rounded-2xl md:block lg:h-[600px] relative overflow-hidden">
+      <p>COMPANY PICTURE</p>
+      <Image src={"/contactImage.jpg"} alt="" fill={true} />
     </div>
   );
 };

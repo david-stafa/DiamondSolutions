@@ -5,7 +5,7 @@ const GoogleMap = () => {
   const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
 
   // Address to be pre-filled in Google Maps
-  const address = "1600 Amphitheatre Parkway, Mountain View, CA";
+  const address = "Plzeňská 18, 150 00 Praha";
 
   // Function to handle marker click
   const handleMarkerClick = () => {
@@ -29,7 +29,7 @@ const GoogleMap = () => {
     <APIProvider apiKey={googleApiKey}>
       <Map
         style={{ width: "100%", height: "100%" }}
-        defaultCenter={{ lat: 50.073658, lng: 14.41854 }}
+        defaultCenter={{ lat: 50.07234402040687, lng: 14.397942475049334 }}
         defaultZoom={15}
         onClick={handleMarkerClick}
         // zoomControl={false} // Disable zoom control
@@ -41,7 +41,7 @@ const GoogleMap = () => {
         // options={mapOptions}
       />
       <Marker
-        position={{ lat: 50.073658, lng: 14.41854 }}
+        position={{ lat: 50.07234402040687, lng: 14.397942475049334 }}
         onClick={handleMarkerClick}
       />
     </APIProvider>

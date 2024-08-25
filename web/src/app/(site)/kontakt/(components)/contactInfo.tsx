@@ -1,5 +1,6 @@
 import Facebook from "@mui/icons-material/Facebook";
 import Instagram from "@mui/icons-material/Instagram";
+import { Link } from "lucide-react";
 
 const ContactInfo = () => {
   return (
@@ -13,18 +14,21 @@ const ContactInfo = () => {
         </div>
         <div>
           <p>Adresa</p>
-          <p>Revolucni 655, Praha</p>
+          <p>Plzeňská 18, 150 00 Praha</p>
         </div>
         <div className="text-base font-bold">
           <p>Telefon</p>
-          <p>+420 123 456 789</p>
+          <p>+420 775 339 817</p>
         </div>
         <div className="text-base font-bold">
           <p>Sociální sítě</p>
-          <div>
-            <Facebook />
+          <a
+            href="https://www.instagram.com/diamond_solutionss/?igsh=MTd2bjR3dWVlZmF4ag%3D%3D&utm_source=qr"
+            className="flex"
+          >
             <Instagram />
-          </div>
+            <p className="ml-1">diamond_solutionss</p>
+          </a>
         </div>
         <div>
           <p className="text-base font-bold">Napište nám</p>
