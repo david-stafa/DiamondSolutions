@@ -24,7 +24,18 @@ const ProductCard = ({
           />
         </div>
         <h6 className="mt-3 pl-2">{product.name}</h6>
-        <p className="mb-3 pl-2">{numberWithDecimals(product.price)} Kč</p>
+        {product.salePrice ? (
+          <>
+            <p className="mb-3 inline-block pl-2 text-sm text-gray-500 line-through">
+              {numberWithDecimals(product.price)} Kč
+            </p>
+            <p className="mb-3 inline-block pl-2">
+              {numberWithDecimals(product.salePrice)} Kč
+            </p>
+          </>
+        ) : (
+          <p className="mb-3 pl-2">{numberWithDecimals(product.price)} Kč</p>
+        )}
       </Link>
     </div>
   );

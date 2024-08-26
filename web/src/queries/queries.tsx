@@ -10,12 +10,12 @@ export const SPERKY_QUERY = (
 ) => `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == '${product}']{
   name,
   price,
+  salePrice,
   "subcategory": subcategory->name,
   "slug": slug.current,
   shortDescription,
   "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url,
   "mainImage": image.asset->url
-
   }`;
 
 export const PRODUCTS_QUERY = (
@@ -23,6 +23,7 @@ export const PRODUCTS_QUERY = (
 ) => `*[_type == 'products' && category->slug.current == '${category}']{
   name,
   price,
+  salePrice,
   "category": category->name,
   "slug": slug.current,
   shortDescription,
@@ -57,6 +58,7 @@ export const SINGLE_PRODUCT_QUERY = (
 export const NEW_JEWELRY_QUERY = `*[_type == 'products' && new == true]{
   name,
   price,
+  salePrice,
   "slug": slug.current,
   "mainImage": image.asset->url,
 }`;
