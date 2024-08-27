@@ -4,12 +4,12 @@ import Container from "../common/Container";
 interface Props {
   source: string;
   alt: string;
+  // Title of a category or subcategory
   header: string;
 }
 
 const MainProductImage: React.FC<Props> = ({ source, alt, header }) => {
 
-  console.log(header)
   return (
     <Container>
       <div className="relative my-4 flex h-screen max-h-[30vh] w-full overflow-hidden rounded-2xl md:my-8 lg:max-h-[450px]">

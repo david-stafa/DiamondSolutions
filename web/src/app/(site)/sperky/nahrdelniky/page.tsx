@@ -10,8 +10,6 @@ const Necklace = async () => {
     revalidate: 60, // update cache at most once every minute
   });
 
-  console.log(nahrdelniky);
-
   return (
     <div className="flex-grow">
       <MainProductImage

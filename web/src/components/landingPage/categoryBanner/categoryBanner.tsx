@@ -16,9 +16,6 @@ const CategoryBanner = async () => {
     revalidate: 60, // update cache at most once every minute
   });
 
-  console.log("AHOJ");
-  console.log(categoryBanners);
-
   return (
     <Container classes="my-8 md:my-12">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-2 md:grid-cols-2 md:gap-4">

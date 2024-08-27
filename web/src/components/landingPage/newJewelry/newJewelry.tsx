@@ -9,8 +9,6 @@ const NewJewelry = async () => {
     revalidate: 60, // update cache at most once every minute
   });
 
-  console.log(newJewelry);
-
   return (
     <Container classes="mb-8">
       <h4 className="mb-4">Novinky:</h4>

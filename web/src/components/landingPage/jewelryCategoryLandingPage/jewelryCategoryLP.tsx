@@ -17,8 +17,6 @@ const JewelryCategoryLandingPage = async () => {
     revalidate: 60, // update cache at most once every minute
   });
 
-  console.log(sperkyPhoto);
-
   return (
     <Container>
       <h4 className="mb-4">Šperky podle kategorie: </h4>
