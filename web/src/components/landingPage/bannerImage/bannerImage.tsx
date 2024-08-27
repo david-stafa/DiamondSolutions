@@ -25,7 +25,7 @@ const BannerImage: React.FC<Props> = ({ banners }) => {
   return (
     <div className="relative m-auto h-screen max-h-[35vh] w-full bg-cover md:max-h-[550px]">
       <Image
-        src={banners[bannerPos].imageUrl}
+        src={banners[bannerPos].imageUrl || "/comingSoon.jpg"}
         sizes="100vw"
         fill={true}
         priority={true}
