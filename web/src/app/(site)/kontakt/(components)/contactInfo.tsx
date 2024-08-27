@@ -16,12 +16,12 @@ const ContactInfo = () => {
           <p>Adresa</p>
           <p>Plzeňská 18, 150 00 Praha</p>
         </div>
-        <div className="text-base font-bold">
-          <p>Telefon</p>
+        <div>
+          <p className="text-base font-bold">Telefon</p>
           <p>+420 775 339 817</p>
         </div>
-        <div className="text-base font-bold">
-          <p>Sociální sítě</p>
+        <div>
+          <p className="text-base font-bold">Sociální sítě</p>
           <a
             href="https://www.instagram.com/diamond_solutionss/?igsh=MTd2bjR3dWVlZmF4ag%3D%3D&utm_source=qr"
             className="flex"
@@ -32,7 +32,7 @@ const ContactInfo = () => {
         </div>
         <div>
           <p className="text-base font-bold">Napište nám</p>
-          <p>info@diamondsolutions.cz</p>
+          <p>info@diamondhut.cz</p>
         </div>
       </div>
     </div>
