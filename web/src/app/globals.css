@@ -44,13 +44,17 @@
   }
 }
 
-body{
+body {
   min-height: 100vh;
 }
 
 body {
   display: flex;
   flex-direction: column;
+}
+
+input:focus {
+  outline-color: black;
 }
 
 /* :root {

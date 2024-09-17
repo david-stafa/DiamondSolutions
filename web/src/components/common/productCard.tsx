@@ -7,7 +7,7 @@ const ProductCard = ({
   index,
 }: {
   product: products;
-  index?: string;
+  index?: number;
 }) => {
   return (
     <div

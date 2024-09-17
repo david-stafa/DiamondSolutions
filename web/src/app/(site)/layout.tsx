@@ -1,14 +1,9 @@
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
 import Header from "@/components/header/menu/header";
 import Footer from "@/components/footer/footer";
-import theme from "../../theme";
 import "../globals.css";
-import {
-  Gilda_Display,
-  Cormorant_Garamond,
-} from "next/font/google";
+import { Gilda_Display } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Diamond Solutions",
@@ -17,32 +12,22 @@ export const metadata: Metadata = {
 
 const gilda = Gilda_Display({
   subsets: ["latin"],
-  variable: "--font-gilda",
+  variable: "--font-gilda", 
   weight: "400",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={gilda.className}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <Header />
-
-            {children}
-
-            <Footer />
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <Header />
+        {children}
+        <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );

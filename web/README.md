@@ -47,3 +47,7 @@ Installation:
     - npm install next-sanity @sanity/image-url @portabletext/react
 
 npm run dev to run sanity and web app
+
+Sanity supported image formats: 
+
+Sanity allows you to upload 256-megapixel archival originals of the image types JPG, SVG, PNG, GIF, or TIFF. These formats can be transcoded into JPG, PNG, GIF, and WebP. Learn how in the chapter on image URLs.

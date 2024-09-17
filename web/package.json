@@ -24,6 +24,7 @@
     "@sanity/client": "^6.20.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.55.0",
+    "@vercel/speed-insights": "^1.0.12",
     "@vis.gl/react-google-maps": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -38,7 +39,8 @@
     "sanity": "^3.55.0",
     "styled-components": "^6.1.12",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

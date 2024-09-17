@@ -42,12 +42,12 @@ export function CarouselProduct({ data }: { data: string[] }) {
             key={index}
             className="w-full md:basis-1/2 lg:basis-1/4"
           >
-            <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl">
+            <div className="relative aspect-square overflow-hidden rounded-2xl">
               <Image
                 className="pointer-events-none"
                 alt={`carousel-image-${index}`}
-                fill
-                src={link || "https://random.imagecdn.app/500/500"}
+                fill={true}
+                src={link}
               />
             </div>
           </CarouselItem>

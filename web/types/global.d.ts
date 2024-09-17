@@ -35,5 +35,6 @@ declare global {
     images: string[];
     categoryBannerImageUrl: string,
     subcategoryBannerImageUrl: string;
+    totalCount: number;
   }[];
 }

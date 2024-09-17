@@ -1,6 +1,4 @@
-import Facebook from "@mui/icons-material/Facebook";
 import Instagram from "@mui/icons-material/Instagram";
-import { Link } from "lucide-react";
 
 const ContactInfo = () => {
   return (
@@ -13,7 +11,7 @@ const ContactInfo = () => {
           <p>09 - 17 h</p>
         </div>
         <div>
-          <p>Adresa</p>
+          <p className="text-base font-bold">Adresa</p>
           <p>Plzeňská 18, 150 00 Praha</p>
         </div>
         <div>

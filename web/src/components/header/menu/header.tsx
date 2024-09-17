@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "./navbar";
 import MobileNav from "./mobileNav";
+import SearchContainer from "../search/searchContainer";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
         </Link>
         {/* for large screens */}
         <Navbar />
+        <SearchContainer />
         {/* for small screens */}
         <MobileNav />
       </div>

@@ -2,6 +2,7 @@
 
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
+// import "../styles.css"
 
 const ContactForm = () => {
   const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_KEY as string;
@@ -29,6 +30,9 @@ const ContactForm = () => {
         },
       );
   };
+
+  const buttonClass =
+    "px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none";
   return (
     <div className="my-8">
       <h2 className="mb-2">Napište nám</h2>
@@ -43,14 +47,14 @@ const ContactForm = () => {
             name="user_name"
             placeholder="Jméno"
             required
-            className="w-1/2 rounded-2xl border border-slate-200 p-4"
+            className="w-1/2 rounded-2xl border border-slate-200 p-4 focus:outline-none focus:ring-1 focus:ring-sky-500"
           />
           <input
             type="email"
             name="user_email"
             placeholder="E-mail"
             required
-            className="w-1/2 rounded-2xl border border-slate-200 p-4"
+            className="w-1/2 rounded-2xl border border-slate-200 p-4 focus:outline-none focus:ring-1 focus:ring-sky-500"
           />
         </div>
         <textarea
@@ -58,12 +62,12 @@ const ContactForm = () => {
           name="message"
           placeholder="Zpráva"
           required
-          className="mt-2 w-full rounded-2xl border border-slate-200 p-4"
+          className="mt-2 w-full rounded-2xl border border-slate-200 p-4 focus:outline-none focus:ring-1 focus:ring-sky-500"
         ></textarea>
         <input
           type="submit"
           value="Odeslat"
-          className="text-large w-full rounded-2xl border border-slate-200 bg-slate-200 p-4 cursor-pointer"
+          className="text-large w-full cursor-pointer rounded-2xl border border-slate-200 bg-slate-200 p-4"
         />
       </form>
     </div>

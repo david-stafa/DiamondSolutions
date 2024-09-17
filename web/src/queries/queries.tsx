@@ -62,3 +62,25 @@ export const NEW_JEWELRY_QUERY = `*[_type == 'products' && new == true]{
   "slug": slug.current,
   "mainImage": image.asset->url,
 }`;
+
+export const SEARCH_QUERY = (data: string) =>
+  `*[_type == 'products' && name match "${data}*"]{
+  name,
+  price,
+  salePrice,
+  "slug": slug.current,
+  "mainImage": image.asset->url,
+  shortDescription,
+  "totalCount": count(*[_type == "products" && name match "${data}*"])
+}`;
+
+export const SEARCH_INPUT_QUERY = (data: string) =>
+  `*[_type == 'products' && name match "${data}*"]{
+  name,
+  price,
+  salePrice,
+  "slug": slug.current,
+  "mainImage": image.asset->url,
+  shortDescription,
+  "totalCount": count(*[_type == "products" && name match "${data}*"])
+}[0..5]`;

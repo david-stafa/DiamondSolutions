@@ -101,7 +101,8 @@ export const products = defineType({
     defineField({
       name: "productImages",
       type: "array",
-      title: "Další produktové fotky která se zobrazí při rozkliknutí produktu",
+      title: "Produktové fotky",
+      description: "Další produktové fotky, které se zobrazí při rozkliknutí produktu",
       of: [
         {
           type: "image",
