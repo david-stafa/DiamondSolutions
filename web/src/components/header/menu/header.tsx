@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "./navbar";
 import MobileNav from "./mobileNav";
 import SearchContainer from "../search/searchContainer";
+import { Suspense } from "react";
 
 const Header = () => {
   return (
@@ -12,7 +13,9 @@ const Header = () => {
         </Link>
         {/* for large screens */}
         <Navbar />
-        <SearchContainer />
+        <Suspense>
+          <SearchContainer />
+        </Suspense>
         {/* for small screens */}
         <MobileNav />
       </div>

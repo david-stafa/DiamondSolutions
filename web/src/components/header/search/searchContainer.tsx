@@ -1,13 +1,12 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { sanityFetch } from "@/sanity/lib/client";
 import { SEARCH_INPUT_QUERY } from "@/queries/queries";
 import SearchInput from "./searchInput";
 
 // TODO - Make PAGINATION
-
 
 export default function SearchContainer() {
   const searchParams = useSearchParams();
@@ -44,6 +43,7 @@ export default function SearchContainer() {
 
   return (
     <div className="ml-auto mr-1">
+      <Suspense />
       <SearchInput
         placeholder="Search"
         searchResults={searchResult}
@@ -51,6 +51,7 @@ export default function SearchContainer() {
         error={error}
         query={query}
       />
+      <Suspense />
     </div>
   );
 }
