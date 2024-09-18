@@ -88,7 +88,7 @@ const SearchInput = ({
       <input
         ref={inputRef}
         type="text"
-        className={`mr-1 w-full max-w-80 rounded-md py-[8px] pl-3 text-sm outline transition-all delay-150 ease-linear placeholder:text-gray-500 md:w-80 ${showSearch ? "block" : "hidden"}`}
+        className={`mr-1 text-base w-full max-w-80 rounded-md py-[8px] pl-3 outline transition-all delay-150 ease-linear placeholder:text-gray-500 md:w-80 ${showSearch ? "block" : "hidden"}`}
         onChange={(e) => {
           handleSearch(e.target.value);
         }}
