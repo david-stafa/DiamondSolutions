@@ -11,7 +11,7 @@ export const PRODUCTS_QUERY = (
   product?: ProductType["product"], // Optional parameter for subcategory
 ) => `*[_type == 'products' && category->slug.current == '${category}'${
   product ? ` && subcategory->slug.current == '${product}'` : ""
-}][${(page - 1) * 2}...${page * 2}]{
+}][${(page - 1) * 24}...${page * 24}]{
   name,
   price,
   salePrice,
