@@ -1,5 +1,5 @@
 import Container from "@/components/common/Container";
-import { CATEGORY_BANNER_QUERY } from "@/queries/queries";
+import { CATEGORY_LANDING_PAGE_BANNER_QUERY } from "@/queries/queries";
 import { sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,7 @@ interface categoryBanners {
 
 const CategoryBanner = async () => {
   const categoryBanners: categoryBanners[] = await sanityFetch({
-    query: CATEGORY_BANNER_QUERY,
+    query: CATEGORY_LANDING_PAGE_BANNER_QUERY,
     revalidate: 60, // update cache at most once every minute
   });
 

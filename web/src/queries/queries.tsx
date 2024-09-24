@@ -11,10 +11,8 @@ export const SPERKY_QUERY = (
   name,
   price,
   salePrice,
-  "subcategory": subcategory->name,
   "slug": slug.current,
   shortDescription,
-  "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url,
   "mainImage": image.asset->url
   }`;
 
@@ -24,11 +22,25 @@ export const PRODUCTS_QUERY = (
   name,
   price,
   salePrice,
-  "category": category->name,
   "slug": slug.current,
   shortDescription,
-  "categoryBannerImageUrl": category->bannerImage.asset->url,
   "mainImage": image.asset->url
+  }`;
+
+export const CATEGORY_BANNER_QUERY = (
+  category: CategoryType["category"],
+) => `*[_type == 'products' && category->slug.current == '${category}'][0]{
+  shortDescription,
+  "category": category->name,
+  "categoryBannerImageUrl": category->bannerImage.asset->url
+  }`;
+
+export const SUB_CATEGORY_BANNER_QUERY = (
+  subcategory: ProcuctType["product"],
+) => `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == '${subcategory}'][0]{
+  shortDescription,
+  "subcategory": subcategory->name,
+  "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url
   }`;
 
 export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
@@ -38,7 +50,7 @@ export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
     "categoryImage": category->menuImage.asset->url
   }`;
 
-export const CATEGORY_BANNER_QUERY = `*[_type == 'category' && (slug.current == 'volne-diamanty' || slug.current == 'investicni-sperky')]{
+export const CATEGORY_LANDING_PAGE_BANNER_QUERY = `*[_type == 'category' && (slug.current == 'volne-diamanty' || slug.current == 'investicni-sperky')]{
   name,
   "slug": slug.current,
   "image": menuImage.asset->url
