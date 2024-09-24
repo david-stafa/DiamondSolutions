@@ -35,14 +35,14 @@ const Modal: React.FC<ModalProps> = ({
     //     </Link>
     //   </div>
     // </Link>
-    <div className="fixed inset-0 w-full z-10 flex items-center justify-center overflow-y-auto bg-gray-600 bg-opacity-50 p-4">
+    <div className="fixed inset-0 z-10 flex w-full items-center justify-center overflow-y-auto bg-gray-600 bg-opacity-50 p-4">
       <div className="relative z-30 aspect-square w-[80%] max-w-3xl overflow-hidden rounded-2xl">
         <div className="absolute inset-0">
           <Image
             src={productImages[+imageNumber]}
             alt={alt}
             fill
-            className="object-contain"
+            // className="object-contain"
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -50,6 +50,7 @@ const Modal: React.FC<ModalProps> = ({
           href={`/produkt/${slug}`}
           className="absolute right-5 top-5 rounded-full bg-white p-2 shadow-md transition-colors hover:bg-gray-100"
           aria-label="Close modal"
+          scroll={false}
         >
           <Close fontSize="large" />
         </Link>
@@ -58,6 +59,7 @@ const Modal: React.FC<ModalProps> = ({
         href={`/produkt/${slug}`}
         className="fixed inset-0 z-20"
         aria-label="Close modal"
+        scroll={false}
       />
     </div>
   );

@@ -15,6 +15,7 @@ const ProductImages = ({
           className="relative aspect-square overflow-hidden rounded-2xl"
           key={i}
           href={`/produkt/${slug}/?show=true&imageNumber=${i}`}
+          scroll={false}
         >
           <Image src={img} alt={`product${i}`} fill={true} />
         </Link>
