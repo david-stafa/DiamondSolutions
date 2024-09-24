@@ -1,47 +1,42 @@
-interface ProcuctType {
+interface ProductType {
   product: "prsteny" | "naramky" | "nahrdelniky" | "nausnice";
 }
 interface CategoryType {
   category: "investicni-sperky" | "volne-diamanty" | "sperky";
 }
 
-export const SPERKY_QUERY = (
-  product: ProcuctType["product"],
-) => `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == '${product}']{
-  name,
-  price,
-  salePrice,
-  "slug": slug.current,
-  shortDescription,
-  "mainImage": image.asset->url
-  }`;
-
 export const PRODUCTS_QUERY = (
   category: CategoryType["category"],
-) => `*[_type == 'products' && category->slug.current == '${category}']{
+  page: number,
+  product?: ProductType["product"], // Optional parameter for subcategory
+) => `*[_type == 'products' && category->slug.current == '${category}'${
+  product ? ` && subcategory->slug.current == '${product}'` : ""
+}][${(page - 1) * 2}...${page * 2}]{
   name,
   price,
   salePrice,
   "slug": slug.current,
   shortDescription,
   "mainImage": image.asset->url
-  }`;
+}`;
 
-export const CATEGORY_BANNER_QUERY = (
+export const BANNER_QUERY = (
   category: CategoryType["category"],
-) => `*[_type == 'products' && category->slug.current == '${category}'][0]{
-  shortDescription,
-  "category": category->name,
-  "categoryBannerImageUrl": category->bannerImage.asset->url
-  }`;
+  product?: ProductType["product"],
+) => {
+  const subcategoryCondition = product
+    ? `, "subcategory": subcategory->name, "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url`
+    : "";
 
-export const SUB_CATEGORY_BANNER_QUERY = (
-  subcategory: ProcuctType["product"],
-) => `*[_type == 'products' && category->slug.current == 'sperky' && subcategory->slug.current == '${subcategory}'][0]{
-  shortDescription,
-  "subcategory": subcategory->name,
-  "subcategoryBannerImageUrl": subcategory->bannerImage.asset->url
+  return `*[_type == 'products' && category->slug.current == '${category}' ${
+    product ? `&& subcategory->slug.current == '${product}'` : ""
+  }][0]{
+    shortDescription,
+    "category": category->name,
+    "categoryBannerImageUrl": category->bannerImage.asset->url
+    ${subcategoryCondition}
   }`;
+};
 
 export const MENU_PHOTOS_QUERY = `*[_type == 'subcategory']{
     name,

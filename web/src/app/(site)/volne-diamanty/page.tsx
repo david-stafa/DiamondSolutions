@@ -1,29 +1,13 @@
-import MainProductImage from "@/components/products/mainProductImage";
-import ProductList from "@/components/products/productList";
-import { CATEGORY_BANNER_QUERY, PRODUCTS_QUERY } from "@/queries/queries";
-import { sanityFetch } from "@/sanity/lib/client";
+import { ProductPageController } from "@/components/common/ProductsPageController";
 
-const VolneDiamanty = async () => {
-  const categoryBanner = await sanityFetch({
-    query: CATEGORY_BANNER_QUERY("volne-diamanty"),
-    revalidate: 60,
-  });
-  const products: products[] = await sanityFetch({
-    query: PRODUCTS_QUERY("volne-diamanty"),
-    revalidate: 60, // update cache at most once every minute
-  });
+interface PageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
-  return (
-    <div className="flex-grow">
-      <MainProductImage
-        source={categoryBanner.categoryBannerImageUrl}
-        alt={categoryBanner.shortDescription}
-        header={categoryBanner.category}
-      />
+const VolneDiamanty = async ({ searchParams }: PageProps) => {
+  const page = Number(searchParams.page) || 1;
 
-      <ProductList data={products} />
-    </div>
-  );
+  return <ProductPageController category="volne-diamanty" page={page} />;
 };
 
 export default VolneDiamanty;

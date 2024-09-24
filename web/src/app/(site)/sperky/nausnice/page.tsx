@@ -1,28 +1,13 @@
-import MainProductImage from "@/components/products/mainProductImage";
-import ProductList from "@/components/products/productList";
-import { SPERKY_QUERY, SUB_CATEGORY_BANNER_QUERY } from "@/queries/queries";
-import { sanityFetch } from "@/sanity/lib/client";
+import { ProductPageController } from "@/components/common/ProductsPageController";
 
-const Earings = async () => {
-  const subCategoryBanner = await sanityFetch({
-    query: SUB_CATEGORY_BANNER_QUERY("nausnice"),
-    revalidate: 60,
-  });
-  const nausnice: products[] = await sanityFetch({
-    query: SPERKY_QUERY("nausnice"),
-    revalidate: 60, // update cache at most once every minute
-  });
+interface PageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
+const Earings = async ({ searchParams }: PageProps) => {
+  const page = Number(searchParams.page) || 1;
   return (
-    <div className="flex-grow">
-      <MainProductImage
-        source={subCategoryBanner.subcategoryBannerImageUrl}
-        alt={subCategoryBanner.shortDescription}
-        header={subCategoryBanner.subcategory}
-      />
-
-      <ProductList data={nausnice} />
-    </div>
+    <ProductPageController category="sperky" page={page} product="nausnice" />
   );
 };
 
