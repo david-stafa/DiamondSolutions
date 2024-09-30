@@ -1,5 +1,5 @@
 interface ProductType {
-  product: "prsteny" | "naramky" | "nahrdelniky" | "nausnice";
+  product: "prsteny" | "naramky" | "nahrdelniky" | "nausnice" | undefined;
 }
 interface CategoryType {
   category: "investicni-sperky" | "volne-diamanty" | "sperky";
@@ -8,10 +8,13 @@ interface CategoryType {
 export const PRODUCTS_QUERY = (
   category: CategoryType["category"],
   page: number,
+  orderBy: string | null,
   product?: ProductType["product"], // Optional parameter for subcategory
-) => `*[_type == 'products' && category->slug.current == '${category}'${
-  product ? ` && subcategory->slug.current == '${product}'` : ""
-}][${(page - 1) * 24}...${page * 24}]{
+) =>
+  `*[_type == 'products' && category->slug.current == '${category}'${
+    product ? ` && subcategory->slug.current == '${product}'` : ""
+  }]
+  | order(${orderBy == null ? "_createdAt desc" : orderBy})[${(page - 1) * 24}...${page * 24}] {
   name,
   price,
   salePrice,

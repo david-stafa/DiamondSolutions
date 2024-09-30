@@ -6,8 +6,15 @@ interface PageProps {
 
 const VolneDiamanty = async ({ searchParams }: PageProps) => {
   const page = Number(searchParams.page) || 1;
+  const orderQuery = (searchParams["order-by"] as string) || null;
 
-  return <ProductPageController category="volne-diamanty" page={page} />;
+  return (
+    <ProductPageController
+      category="volne-diamanty"
+      page={page}
+      orderQuery={orderQuery}
+    />
+  );
 };
 
 export default VolneDiamanty;

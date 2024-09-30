@@ -6,8 +6,15 @@ interface PageProps {
 
 const InvesticniSperky = async ({ searchParams }: PageProps) => {
   const page = Number(searchParams.page) || 1;
+  const orderQuery = (searchParams["order-by"] as string) || null;
 
-  return <ProductPageController category="investicni-sperky" page={page} />;
+  return (
+    <ProductPageController
+      category="investicni-sperky"
+      page={page}
+      orderQuery={orderQuery}
+    />
+  );
 };
 
 export default InvesticniSperky;

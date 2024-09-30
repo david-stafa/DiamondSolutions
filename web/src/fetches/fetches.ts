@@ -1,7 +1,4 @@
-import {
-  BANNER_QUERY,
-  PRODUCTS_QUERY,
-} from "@/queries/queries";
+import { BANNER_QUERY, PRODUCTS_QUERY } from "@/queries/queries";
 import { sanityFetch } from "@/sanity/lib/client";
 
 interface CategoryBanner {
@@ -26,6 +23,12 @@ interface FetchProductsParams {
   category: "sperky" | "volne-diamanty" | "investicni-sperky";
   page: number;
   product?: "nahrdelniky" | "prsteny" | "naramky" | "nausnice";
+  orderByQuery:
+    | "coalesce(salePrice, price) asc"
+    | "coalesce(salePrice, price) desc"
+    | "_createdAt asc"
+    | "_createdAt desc"
+    | null;
 }
 
 export async function fetchBanner({
@@ -41,10 +44,11 @@ export async function fetchBanner({
 export async function fetchProducts({
   category,
   page,
+  orderByQuery,
   product,
 }: FetchProductsParams): Promise<ProductsResponse> {
   const products = await sanityFetch({
-    query: PRODUCTS_QUERY(category, page, product),
+    query: PRODUCTS_QUERY(category, page, orderByQuery, product),
     revalidate: 60,
   });
 
