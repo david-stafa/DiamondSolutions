@@ -27,6 +27,7 @@ declare global {
     slug: string;
     price: number;
     salePrice: number;
+    new: boolean;
     shortDescription: string;
     longDescription: string;
     category: string;

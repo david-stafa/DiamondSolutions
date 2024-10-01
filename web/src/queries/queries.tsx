@@ -18,6 +18,7 @@ export const PRODUCTS_QUERY = (
   name,
   price,
   salePrice,
+  new,
   "slug": slug.current,
   shortDescription,
   "mainImage": image.asset->url
@@ -68,6 +69,7 @@ export const SINGLE_PRODUCT_QUERY = (
 export const NEW_JEWELRY_QUERY = `*[_type == 'products' && new == true]{
   name,
   price,
+  new,
   salePrice,
   "slug": slug.current,
   "mainImage": image.asset->url,

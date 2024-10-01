@@ -1,6 +1,7 @@
 import { numberWithDecimals } from "@/helpers/numberwdecimals";
 import Image from "next/image";
 import Link from "next/link";
+import Badge from "./Badge";
 
 const ProductCard = ({
   product,
@@ -16,6 +17,8 @@ const ProductCard = ({
     >
       <Link href={`/produkt/${product.slug}`}>
         <div className="relative aspect-square overflow-hidden rounded-2xl">
+          {/* !! transform value to boolean if it has value => true : false */}
+          <Badge sale={!!product.salePrice}  isNew={product.new}/>
           <Image
             fill={true}
             src={product.mainImage}
