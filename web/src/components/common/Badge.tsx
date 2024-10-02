@@ -5,7 +5,7 @@ interface BadgeProps {
 
 const Badge = ({ isNew, sale }: BadgeProps) => {
   return (
-    <div className="absolute left-2 top-2 z-50 flex w-20 flex-col gap-1">
+    <div className="absolute left-2 top-2 z-10 flex w-20 flex-col gap-1 text-sm md:text-base">
       {isNew && (
         <span className="z-50 rounded-2xl bg-gradient-to-r from-[#A1C4FD] to-[#C2E9FB] px-2 py-[2px] text-center">
           Novinka
