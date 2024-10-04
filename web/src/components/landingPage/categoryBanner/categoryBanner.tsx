@@ -24,7 +24,7 @@ const CategoryBanner = async () => {
             <Link href={`/${banner.slug}`} key={index}>
               <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-slate-200 md:h-[600px]">
                 <Image src={banner.image || ""} alt={banner.slug} fill={true} />
-                <div className="absolute bottom-10 left-10 md:bottom-20">
+                <div className="absolute bottom-10 left-10">
                   <h2 className="mb-4 rounded-2xl p-2 text-white backdrop-blur-md">
                     {banner.name}
                   </h2>
