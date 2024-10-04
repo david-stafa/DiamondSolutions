@@ -35,7 +35,7 @@ const ProductDescription = ({
         </div>
       </div>
       <hr className="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-25 dark:via-neutral-400" />
-      <p className="font mb-4">{longDescription}</p>
+      <p className="mb-4 break-words">{longDescription}</p>
       <Link href="/kontakt">
         <button className="h-12 w-full rounded-2xl bg-slate-200">
           Kontaktujte nás

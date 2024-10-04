@@ -25,7 +25,7 @@ const SearchResults = ({
     setShowSearch(false);
   };
   return (
-    <div className="absolute left-0 top-[57.5px] z-50 w-screen bg-white md:left-auto md:top-[51px] md:w-80 md:rounded-2xl md:border md:border-slate-200">
+    <div className="absolute left-0 top-[57.5px] z-50 w-screen bg-white md:left-auto md:top-[53px] md:w-80 md:rounded-2xl md:border md:border-slate-200">
       {/* ERROR HANDLING */}
       {isLoading ? (
         <div className="flex h-16 items-center justify-center p-2">
