@@ -8,7 +8,9 @@ import NewJewelry from "./newJewelry/newJewelry";
 const LandingPage = () => {
   return (
     <div>
-      <Banner />
+      <div className="w-full bg-gradient-to-b from-slate-200 to-slate-100 xl:pt-8">
+        <Banner />
+      </div>
       <BrandDescription />
       <NewJewelry />
       <JewelryCategoryLandingPage />
