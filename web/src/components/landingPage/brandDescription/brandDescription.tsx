@@ -2,7 +2,7 @@ import Container from "@/components/common/Container";
 
 const BrandDescription = () => {
   return (
-    <div className="w-full bg-gradient-to-b from-slate-300 pt-8">
+    <div className="w-full bg-gradient-to-b from-slate-100 pt-8">
       <Container>
         {/* <div className="flex items-center justify-between"> */}
         <div className="flex flex-col items-center justify-between md:flex-row">
