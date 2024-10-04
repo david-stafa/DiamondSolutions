@@ -4,6 +4,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import StoreIcon from "@mui/icons-material/Store";
 import Link from "next/link";
+import { sanityFetch } from "@/sanity/lib/client";
 
 // Define the type for the icon mapping
 interface IconMapping {
@@ -11,44 +12,59 @@ interface IconMapping {
 }
 
 const iconMapping: IconMapping = {
-  EmailIcon: EmailIcon,
-  PhoneIcon: PhoneIcon,
-  InstagramIcon: InstagramIcon,
-  StoreIcon: StoreIcon,
+  email: EmailIcon,
+  phone: PhoneIcon,
+  instagram: InstagramIcon,
+  adress: StoreIcon,
 };
 
-const Footer = () => {
+const CONTACT_QUERY = `*[_type == 'contact' && name == 'Diamond Solutions'][0]{
+  phone, 
+  adress,
+  instagram,
+  email
+}`;
+
+interface Contact {
+  phone: string;
+  adress: string;
+  instagram: { link: string; name: string };
+  email: string;
+}
+
+const Footer = async () => {
+  const contactData:Contact = await sanityFetch({
+    query: CONTACT_QUERY,
+    revalidate: 60,
+  });
+
+  const contactArray = Object.entries(contactData);
+
   return (
     <div className="h-fit w-full bg-slate-200">
-      <div className="m-auto flex max-w-7xl justify-between flex-wrap px-5 pb-4 h-fit">
-        {footerData &&
-          footerData.map((section, index) => (
-            <div key={index}>
-              <h5 className="underline pt-4">{section.title}</h5>
-              {section.links.map((link, linkIndex) => {
-                const IconComponent = link.icon && iconMapping[link.icon];
-                return (
-                  <div key={linkIndex} className="flex">
-                    <div className="flex h-6 items-center">
-                      {link.link ? (
-                        <>
-                          {IconComponent && <IconComponent className="mr-2" />}
-                          <Link href={link.link}>
-                            <span className="">{link.data || link.title}</span>
-                          </Link>
-                        </>
-                      ) : (
-                        <>
-                          {IconComponent && <IconComponent className="mr-2" />}
-                          <span className="">{link.data || link.title}</span>
-                        </>
-                      )}
-                    </div>
+      <div className="m-auto flex h-fit max-w-7xl flex-wrap justify-between px-5 pb-4">
+        <div>
+          <h5 className="pt-4 underline">Kontakt</h5>
+          {contactArray &&
+            contactArray.map(([key, value], index) => {
+              const IconComponent = key && iconMapping[key];
+
+              return (
+                <div key={index} className="flex">
+                  <div className="flex h-6 items-center">
+                    {IconComponent && <IconComponent className="mr-2" />}
+                    {value.name ? (
+                      <Link href={value.link}>
+                        <span>{value.name}</span>
+                      </Link>
+                    ) : (
+                      <span>{value}</span>
+                    )}
                   </div>
-                );
-              })}
-            </div>
-          ))}
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

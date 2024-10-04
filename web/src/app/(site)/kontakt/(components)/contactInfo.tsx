@@ -1,36 +1,56 @@
+import { sanityFetch } from "@/sanity/lib/client";
 import Instagram from "@mui/icons-material/Instagram";
 
-const ContactInfo = () => {
+const CONTACT_QUERY = `*[_type == 'contact' && name == 'Diamond Solutions'][0]{
+  phone, 
+  adress,
+  instagram,
+  email,
+  openHours
+}`;
+
+interface Contact {
+  phone: string;
+  adress: string;
+  instagram: { link: string; name: string };
+  email: string;
+  openHours: {days: string, hours: string};
+}
+
+const ContactInfo = async () => {
+  const contactData: Contact = await sanityFetch({
+    query: CONTACT_QUERY,
+    revalidate: 60,
+  });
+
+  console.log(contactData)
   return (
     <div>
       <h2 className="mb-4">Spojte se s námi</h2>
       <div className="grid grid-cols-2 gap-y-2 text-sm md:text-base">
         <div>
           <p className="text-base font-bold">Kontaktujte nás</p>
-          <p>Po - Pá</p>
-          <p>09 - 17 h</p>
+          <p>{contactData.openHours.days}</p>
+          <p>{contactData.openHours.hours}</p>
         </div>
         <div>
           <p className="text-base font-bold">Adresa</p>
-          <p>Plzeňská 18, 150 00 Praha</p>
+          <p>{contactData.adress}</p>
         </div>
         <div>
           <p className="text-base font-bold">Telefon</p>
-          <p>+420 775 339 817</p>
+          <p>{contactData.phone}</p>
         </div>
         <div>
           <p className="text-base font-bold">Sociální sítě</p>
-          <a
-            href="https://www.instagram.com/diamond_solutionss/?igsh=MTd2bjR3dWVlZmF4ag%3D%3D&utm_source=qr"
-            className="flex"
-          >
+          <a href={contactData.instagram.link} className="flex">
             <Instagram />
-            <p className="ml-1">diamond_solutionss</p>
+            <p className="ml-1">{contactData.instagram.name}</p>
           </a>
         </div>
         <div>
           <p className="text-base font-bold">Napište nám</p>
-          <p>info@diamondhut.cz</p>
+          <p>{contactData.email}</p>
         </div>
       </div>
     </div>
