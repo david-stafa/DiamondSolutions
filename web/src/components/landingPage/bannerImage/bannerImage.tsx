@@ -20,7 +20,7 @@ const BannerImage: React.FC<Props> = ({ banners }) => {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [banners.length]); // Dependency on banners.length
+  }, [banners.length, bannerPos]); // Dependency on banners.length
 
   return (
     <div className="relative m-auto h-screen max-h-[35vh] w-full bg-cover md:max-h-[550px] max-w-7xl xl:rounded-2xl overflow-hidden">
