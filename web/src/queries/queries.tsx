@@ -71,6 +71,7 @@ export const NEW_JEWELRY_QUERY = `*[_type == 'products' && new == true]{
   price,
   new,
   salePrice,
+  shortDescription,
   "slug": slug.current,
   "mainImage": image.asset->url,
 }`;

@@ -30,13 +30,13 @@ const Arrows: React.FC<ArrowsProps> = ({
   return (
     <>
       <span
-        className="absolute right-3 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:right-10"
+        className="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-4 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:right-10"
         onClick={handleBannerNext}
       >
         <ArrowForwardIcon sx={{ color: "white" }} />
       </span>
       <span
-        className="absolute left-3 top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:left-10"
+        className="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-4 items-center justify-center rounded-full bg-slate-400 opacity-80 hover:opacity-100 md:left-10"
         onClick={handleBannerPrevious}
       >
         <ArrowBackIcon sx={{ color: "white" }} />

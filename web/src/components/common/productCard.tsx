@@ -22,7 +22,7 @@ const ProductCard = ({
           <Image
             fill={true}
             src={product.mainImage}
-            alt={product.shortDescription}
+            alt={product.shortDescription || "new jewelry"}
             className="aspect-square transition ease-in-out hover:scale-110"
           />
         </div>

@@ -17,7 +17,7 @@ const Pagination: React.FC<props> = ({ productsCount, currentPage }) => {
   const pages = Math.ceil(productsCount / 24);
 
   const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     params.set("page", pageNumber.toString());
     return `${pathname}?${params.toString()}`;
   };

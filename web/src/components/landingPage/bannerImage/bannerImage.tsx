@@ -29,7 +29,7 @@ const BannerImage: React.FC<Props> = ({ banners }) => {
         sizes="100vw"
         fill={true}
         priority={true}
-        alt="alt"
+        alt="jewelry banner"
         quality={100}
       />
       <Arrows
